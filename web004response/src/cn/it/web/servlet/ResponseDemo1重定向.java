@@ -12,7 +12,7 @@ import java.io.IOException;
 *
 * */
 @WebServlet("/responseDemo1")
-public class ResponseDemo1 extends HttpServlet {
+public class ResponseDemo1重定向 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.doPost(req,resp);
