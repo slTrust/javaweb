@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="checkImg" src="/web004/checkCodeServlet" alt="">
+<a href="#">看不清换一张</a>
+<script>
+    var img = document.querySelector("#checkImg");
+    img.addEventListener("click",function(){
+        var param = Math.random();
+        img.src = "/web004/checkCodeServlet?t=" + param;
+    })
+</script>
+</body>
+</html>
