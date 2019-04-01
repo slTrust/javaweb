@@ -82,11 +82,11 @@
 				//1. 设置状态码为302
 		        response.setStatus(302);
 		        //2.设置响应头location
-		        response.setHeader("location","/day15/responseDemo2");
+		        response.setHeader("location","/web004/responseDemo2");
 
 
 		        //简单的重定向方法
-		        response.sendRedirect("/day15/responseDemo2");
+		        response.sendRedirect("/web004/responseDemo2");
 
 			* 重定向的特点:redirect
 				1. 地址栏发生变化
@@ -109,7 +109,7 @@
 							* ./：当前目录
 							* ../:后退一级目录
 					2. 绝对路径：通过绝对路径可以确定唯一资源
-						* 如：http://localhost/day15/responseDemo2		/day15/responseDemo2
+						* 如：http://localhost/web004/responseDemo2		/web004/responseDemo2
 						* 以/开头的路径
 
 						* 规则：判断定义的路径是给谁用的？判断请求将来从哪儿发出

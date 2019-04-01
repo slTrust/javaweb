@@ -30,7 +30,11 @@ public class ResponseDemo1 extends HttpServlet {
         */
 
         // 简化版本重定向
-        resp.sendRedirect("/web004/responseDemo2");
+        // resp.sendRedirect("/web004/responseDemo2");
+
+        // 动态获取 虚拟目录来实现重定向 (因为虚拟目录可变写死就崩了)
+        String contextPath = req.getContextPath();
+        resp.sendRedirect(contextPath + "/responseDemo2");
     }
 }
 
