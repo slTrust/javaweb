@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h4>资源不该直接指向资源，而是指向一个servlet</h4>
+<img  style="height: 100px;width: 100px;" src="/web004/img/2.jpg" alt="">
+<a href="/web004/img/2.jpg">图片</a>
+<a href="/web004/img/1.avi">avi</a>
+<video src="/web004/img/1.avi"></video>
+
+<h4>指向servlet的资源</h4>
+<a href="/web004/downloadServlet?filename=2.jpg">图片</a>
+<a href="/web004/downloadServlet?filename=1.avi">AVI</a>
+<a href="/web004/downloadServlet?filename=九尾.jpg">中文文件名</a>
+<ul>
+    <li> 定义servlet</li>
+    <li>1.获取文件名称</li>
+    <li>2.使用字节输入流加载文件进内存</li>
+    <li>3.指定response的响应头 content-disposition:attachment;filename=xxx</li>
+    <li>4.将数据写入到 response流</li>
+</ul>
+</body>
+</html>
