@@ -234,12 +234,25 @@
                 * 在服务器正常关闭之前，将session对象系列化到硬盘上
             * session的活化：
                 * 在服务器启动后，将session文件转化为内存中的session对象即可。
-            
+        ```
+        场景 你去 京东选购了一堆产品，但是没有去结算，此时的商品清单是存在session里的
+        此时你接了一个电话 5分钟，期间京东的服务器重启了， 那么session就没了
+        此时你点击结算，由于session数据没了，你的结算清单也没了，
+        导致你以后都不去京东买东西了。
+        
+        所以在服务器关闭的时候，要把session数据 序列化存入磁盘，
+        重启之后 反序列化 session 这样就可以保证数据不丢失
+        
+        - tomcat 会自动帮我们把session数据 钝化和活化
+        
+        - IDEA里无法实现， 只会帮我们钝化 ，活化不会成功 
+        - IDEA部署时 会把我们的文件生产一个work目录里， 每次重启的时候如果存在work目录就先删除在创建 所以就导致无法读取那个 序列化的session文件 
+        ```  
     3. session什么时候被销毁？
         1. 服务器关闭
         2. session对象调用invalidate() 。
         3. session默认失效时间 30分钟
-            选择性配置修改	
+            选择性配置修改web.xml	
             <session-config>
                 <session-timeout>30</session-timeout>
             </session-config>
