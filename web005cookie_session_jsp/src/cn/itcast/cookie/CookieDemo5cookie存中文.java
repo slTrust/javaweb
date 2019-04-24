@@ -8,20 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/*
-* Cookie 快速入门
-* */
-@WebServlet("/cookieDemo4")
-public class CookieDemo4cookie有效期 extends HttpServlet {
+@WebServlet("/cookieDemo5")
+public class CookieDemo5cookie存中文 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 1 创建Cookie对象
-        Cookie cookie = new Cookie("msg","hello");
-        // 2 设置存活时间
-        // cookie.setMaxAge(30); //将cookie持久化到硬盘上， 30秒后自动删除
-        // cookie.setMaxAge(-1); // 负数是默认值 关闭浏览器就删除
-        cookie.setMaxAge(0); // 删除 cookie
-        // 3 发送 Cookie
+        Cookie cookie = new Cookie("msg","你好");
         response.addCookie(cookie);
+        // 在 tomcat8 之前 cookie 里 不能直接存 中文
+            // 需要将中文数据转码，----一般采用URL编码
+        // tomcat8 之后 cookie 支持中文数据
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
